@@ -1,0 +1,62 @@
+/* You can add global styles to this file, and also import other style files */
+.my_col1{
+    /* background-color: #59ab44 !important; */
+    background-color: #ffffff !important;
+    box-shadow: 0 0 4px 1px #8a8585;
+    font-weight: bold !important;
+    color: #59ab44 !important ;
+    border-radius: 30px;
+}
+.my_jumbo{
+    background-color: white;
+    box-shadow: 0 0 4px 1px #8a8585;
+    
+}
+.my-body_col{
+    background-color: #e9ecef;
+}
+.nav-link:hover{
+    color: black !important;
+}
+body,head{
+    font-family: 'Poppins', sans-serif;
+
+}
+.nav-link{
+    color: #59ab44 !important ;
+}
+.my_btn{
+    color: #ffffff !important;
+    background-color: #59ab44 !important;
+    border:1px solid #59ab44 ;
+}
+.thead_my-col{
+    background-color: #59ab44 !important;
+    color: #ffffff !important;
+
+}
+.my_btn1{
+    background-color: white !important;
+    color: rgb(0, 0, 0) !important;
+    border:1px solid red ;
+
+}
+.my_btn1:hover{
+    background-color: red !important;
+    color: wheat !important;
+}
+.my_btn2{
+    background-color: white !important;
+    color: rgb(0, 0, 0) !important;
+    border:1px solid #59ab44 ;
+
+}
+.my_btn2:hover{
+    background-color: #59ab44 !important;
+    color: wheat !important;
+}
+.my_style{
+    font-weight: bolder !important;
+    color: #59ab44 !important ;
+    font-size: 35px !important;
+}

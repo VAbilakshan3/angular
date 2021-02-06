@@ -1,0 +1,123 @@
+<div *ngIf="students.length" 
+        style="background: linear-gradient(to bottom,  #ffffff 100%);
+                margin:5px;padding:7px;border-radius:5px">                                      
+    <h3 class="mb-4">Students Lists</h3>
+    <table class="table table-hover table-sm">
+        <thead class="thead_my-col">
+          <tr>
+            <th>Edit</th>
+            <th>Firstname</th>
+            <th>Subjects</th>
+            <th>Address</th>
+            <th>Joined Date</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let student of students">
+              <td>
+                <button type="button" class="btn my_btn2" (click)="setStudentDetails(student)">
+                  <span style="font-size:12px" ><input type="hidden" value="{{student._id}}"><i  class="fa">&#xf040;</i></span>
+                </button>
+              </td>
+              <td>{{student.firstname}}</td>
+              <td>{{student.subjects}}</td>
+              <td>{{student.address}}</td>
+              <td>{{student.joinedDate}}</td>
+              <td>
+                <button type="button" class="btn my_btn1" 
+                  data-toggle="modal" data-target="#delete-modal" 
+                                (click)=prepareDeleteStudent(student) >&times;</button>
+              </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- The Modal -->
+<div class="modal fade" id="delete-modal">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+    
+    <!-- Modal Header -->
+    <div class="modal-header">
+      <h4 class="modal-title">Delete!</h4>
+      <button type="button" class="close" data-dismiss="modal">&times;</button>
+    </div>
+    
+    <!-- Modal body -->
+    <div class="modal-body">
+        <div *ngIf="deletedStudent">
+          <p [hidden] = "returnedMessage">
+            Do you want delete a student with id = {{deletedStudent._id}}
+          </p>
+          <p [hidden] = "!returnedMessage">
+            {{returnedMessage}}
+          </p>
+        </div>
+    </div>
+    
+    <!-- Modal footer -->
+    <div class="modal-footer">
+      <button [hidden] = "returnedMessage" type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+      <button [hidden] = "returnedMessage" type="button" class="btn btn-danger" (click)="deleteStudent()">Delete</button>
+      <button [hidden] = "!returnedMessage" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+    </div>				
+    </div>
+  </div>
+  </div>
+
+<div *ngIf="showStudent"
+            style="background: linear-gradient(to bottom, #ffffff 0%,  100%);
+                margin:5px;padding:7px;border-radius:5px">
+    <h3>Update Student</h3>
+    <form (ngSubmit)="updateStudent()"> 
+        <!-- ID -->   
+        <div class="form-group">
+          <label for="id">Id:</label>
+          <input type="numer" class="form-control"
+                    id="id" required [(ngModel)]="showStudent._id" name="id" disabled>
+        </div>      
+        <!-- First name -->   
+        <div class="form-group">
+          <label for="firstname">First Name:</label>
+          <input type="text" class="form-control" placeholder="Enter Firstname" 
+                    id="firstname" required [(ngModel)]="showStudent.firstname" name="firstname">
+        </div>
+        <!-- Subjects -->
+        <div class="form-group">
+            <label for="subjects">Subjects:</label>
+            <input type="text" class="form-control" placeholder="Enter Subjects" 
+                      id="subjects" required [(ngModel)]="showStudent.subjects" name="subjects">
+        </div>  
+        <!-- Address -->
+        <div class="form-group">
+            <label for="address">Address:</label>
+            <input type="text" class="form-control" placeholder="Enter Address" 
+                      id="address" required [(ngModel)]="showStudent.address" name="address">
+        </div>        
+        
+        <!-- Joined Date -->
+        <div class="form-group">
+          <label for="joinedDate">Joined Date</label>
+          <input type="date" class="form-control" placeholder="Enter Joined Date" 
+                      id="joinedDate" required [(ngModel)]="showStudent.joinedDate" name="joinedDate">
+        </div>
+     
+        <button type="submit" class="btn btn-success">Update</button>
+      </form>
+</div>
+<app-message></app-message>
+
+
+<script>
+  let pathname = window.location.pathname;
+  if(pathname == ""){
+      $(".nav .nav-item a:first").addClass("active");
+      $(".nav .nav-item a:last").removeClass("active");
+  } else if (pathname == "/students") {
+      $(".nav .nav-item a:last").addClass("active");
+      $(".nav .nav-item a:first").removeClass("active");
+  }
+  alert("ok");
+</script>

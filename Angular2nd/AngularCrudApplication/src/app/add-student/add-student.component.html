@@ -1,0 +1,33 @@
+<h4 class="mb-4">Add Student</h4>
+<div>
+  <form (ngSubmit)="onSubmit()"> 
+    <!-- First name -->   
+    <div class="form-group">
+      <label class="font-weight-bolder" style="font-size: 14px;" for="firstname">First Name:</label>
+      <input type="text" class="form-control" placeholder="Enter Firstname" 
+                id="firstname" required [(ngModel)]="student.firstname" name="firstname">
+    </div>
+    <!-- Subjects -->
+    <div class="form-group">
+        <label class="font-weight-bolder" style="font-size: 14px;" for="subjects">Subjects:</label>
+        <input type="text" class="form-control" placeholder="Enter Subjects" 
+                  id="subjects" required [(ngModel)]="student.subjects" name="subjects">
+    </div>  
+    <!-- Address -->
+    <div class="form-group">
+        <label class="font-weight-bolder" style="font-size: 14px;" for="address">Address:</label>
+        <input type="text" class="form-control" placeholder="Enter Address" 
+                  id="address" required [(ngModel)]="student.address" name="address">
+    </div>        
+    
+    <!-- joinedDate -->
+    <div class="form-group">
+      <label class="font-weight-bolder" style="font-size: 14px;" for="joinedDate">Joined Date</label>
+      <input type="date" class="form-control" placeholder="Enter Joined Date" 
+                  id="joinedDate" required [(ngModel)]="student.joinedDate" name="joinedDate">
+    </div>
+ 
+    <button type="submit" class="btn my_btn">Submit</button>
+  </form>
+</div>
+<app-message></app-message>
